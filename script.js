@@ -17,6 +17,7 @@ function generateBookGrids() {
     Library.forEach((Book) => {
       let bookDiv = document.createElement("div");
       bookDiv.classList.add(Book.title);
+      bookDiv.setAttribute('id',Book.uuid);
       bookDiv.setAttribute(
         "style",
         "background:#bde0fe; border-radius: 5%; text-align: center;"
@@ -25,8 +26,9 @@ function generateBookGrids() {
       bookDiv.innerHTML += "<p>" + Book.author + "</p>";
       bookDiv.innerHTML += "<p>" + Book.pages + " Pages</p>";
       bookDiv.innerHTML += "<p>" + Book.haveRead + "</p>";
-      bookDiv.innerHTML += "<button>Delete</button>";
+      bookDiv.innerHTML += "<button id=d-"+Book.uuid+">Delete</button>";
       libraryContainer.appendChild(bookDiv);
+      document.getElementById("d-"+Book.uuid).addEventListener("click", () =>{removeBookFromLibrary(Book.uuid)})
     });
   }  
 
@@ -35,6 +37,7 @@ function addBookToLibrary(uuid, title, author, pages, haveRead) {
   Library.push(new Book(uuid, title, author, pages, haveRead));
 }
 
+//Function to remove book from library
 function removeBookFromLibrary(uuid) {
     Library = Library.filter(Book => Book.uuid != uuid);
     generateBookGrids();
