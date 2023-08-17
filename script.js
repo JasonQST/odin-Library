@@ -39,8 +39,7 @@ function addBookToLibrary(uuid, title, author, pages, haveRead) {
 
 //Function to remove book from library
 function removeBookFromLibrary(uuid) {
-    Library = Library.filter(Book => Book.uuid != uuid);
-    generateBookGrids();
+    document.getElementById(uuid).remove();
 }
 
 //Add some examples
