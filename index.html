@@ -12,13 +12,23 @@
         <form>
           <p>
             <label>
-              Favorite animal:
-              <select>
-                <option value="default">Choose…</option>
-                <option>Brine shrimp</option>
-                <option>Red panda</option>
-                <option>Spider monkey</option>
-              </select>
+              Book Name:
+              <input type="text" id="bookNameInput">
+            </label>
+            <br>
+            <label>
+              Author:
+              <input type="text" id="authorInput">
+            </label>
+            <br>
+            <label>
+              Page Number:
+              <input type="number" id="pageInput">
+            </label>
+            <br>
+            <label>
+              Read:
+              <input type="checkbox" id="readInput">
             </label>
           </p>
           <div>
@@ -27,6 +37,10 @@
           </div>
         </form>
     </dialog>
+    <p>
+      <button id="showDialog">Show the dialog</button>
+    </p>
+    <output></output>
     <div class="header">
         <h1>Library</h1>
     </div>
